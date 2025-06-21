@@ -41,7 +41,8 @@ const AdminDashboard = () => {
   const [tooltipPosition, setTooltipPosition] = useState({ x: 0, y: 0 });
   const [logFilter, setLogFilter] = useState('all');
   const [logSearch, setLogSearch] = useState('');
-  const stats = getStatistics();  const downloadData = () => {
+  const stats = getStatistics(); 
+   const downloadData = () => {
     const dashboardData = {
       statistics: stats,
       projects: allProjects,
@@ -262,7 +263,7 @@ const AdminDashboard = () => {
                 className={`
                   px-6 py-3 rounded-2xl font-semibold transition-all duration-300
                   ${activeView === 'overview' 
-                    ? 'bg-blue-500 text-white shadow-xl shadow-blue-500/25' 
+                    ? 'bg-purple-500 text-white shadow-xl shadow-blue-500/25' 
                     : 'bg-white/70 text-gray-700 hover:bg-white hover:shadow-lg'
                   }
                 `}

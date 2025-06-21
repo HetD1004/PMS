@@ -265,7 +265,7 @@ const UserDashboard = () => {
           <div className="flex items-center justify-between mb-6">
             <div className="space-y-2">
               <h1 className="text-4xl font-bold bg-gradient-to-r from-gray-900 via-blue-900 to-purple-900 bg-clip-text text-transparent">
-                Welcome back, {currentUser.name}! 👋
+                Welcome back, {currentUser.name}!
               </h1>
               <p className="text-gray-600 text-lg">
                 Ready to conquer your tasks today? Let's make it happen!
@@ -277,7 +277,7 @@ const UserDashboard = () => {
                 className={`
                   px-4 py-2 rounded-xl font-medium transition-all duration-200
                   ${activeView === 'overview' 
-                    ? 'bg-blue-500 text-white shadow-lg' 
+                    ? 'bg-purple-500 text-white shadow-lg' 
                     : 'bg-white/70 text-gray-700 hover:bg-white hover:shadow-md'
                   }
                 `}
@@ -288,7 +288,7 @@ const UserDashboard = () => {
                 className={`
                   px-4 py-2 rounded-xl font-medium transition-all duration-200
                   ${activeView === 'analytics' 
-                    ? 'bg-blue-500 text-white shadow-lg' 
+                    ? 'bg-purple-500 text-white shadow-lg' 
                     : 'bg-white/70 text-gray-700 hover:bg-white hover:shadow-md'
                   }
                 `}
