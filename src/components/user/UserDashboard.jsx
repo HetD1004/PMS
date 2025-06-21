@@ -277,7 +277,7 @@ const UserDashboard = () => {
                 className={`
                   px-4 py-2 rounded-xl font-medium transition-all duration-200
                   ${activeView === 'overview' 
-                    ? 'bg-blue-500 text-white shadow-lg' 
+                    ? 'bg-purple-500 text-white shadow-lg' 
                     : 'bg-white/70 text-gray-700 hover:bg-white hover:shadow-md'
                   }
                 `}
@@ -288,7 +288,7 @@ const UserDashboard = () => {
                 className={`
                   px-4 py-2 rounded-xl font-medium transition-all duration-200
                   ${activeView === 'analytics' 
-                    ? 'bg-blue-500 text-white shadow-lg' 
+                    ? 'bg-purple-500 text-white shadow-lg' 
                     : 'bg-white/70 text-gray-700 hover:bg-white hover:shadow-md'
                   }
                 `}
