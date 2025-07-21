@@ -448,6 +448,40 @@ npm run dev
 
 ## License & Credits
 
+## 🚀 Deployment
+
+### Vercel Deployment (Recommended)
+
+This project is optimized for Vercel deployment:
+
+#### Option 1: GitHub Integration
+1. Push your code to GitHub
+2. Go to [vercel.com](https://vercel.com) and sign in
+3. Click "New Project" and import your repository
+4. Vercel will auto-detect the framework and deploy
+
+#### Option 2: Vercel CLI
+```bash
+# Install Vercel CLI globally
+npm install -g vercel
+
+# Deploy to preview
+vercel
+
+# Deploy to production
+vercel --prod
+```
+
+#### Build Configuration
+- **Build Command**: `npm run build`
+- **Output Directory**: `dist`
+- **Node.js Version**: 18.x or higher
+
+### Other Platforms
+- **Netlify**: Drag and drop the `dist` folder
+- **GitHub Pages**: Use `gh-pages` package
+- **Firebase Hosting**: Use Firebase CLI
+
 ### License
 This project is created for **educational and demonstration purposes**. Feel free to use, modify, and distribute as needed.
 
