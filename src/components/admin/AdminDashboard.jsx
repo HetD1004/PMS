@@ -234,13 +234,15 @@ const AdminDashboard = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50 relative overflow-hidden">      <div className="fixed inset-0 overflow-hidden pointer-events-none">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50 relative overflow-hidden">      
+      <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-300 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob"></div>
         <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-2000"></div>
         <div className="absolute top-40 left-40 w-80 h-80 bg-indigo-300 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-4000"></div>
       </div>
 
-      <div className="relative z-10 p-8 max-w-7xl mx-auto">        <div className="mb-12">
+      <div className="relative z-10 p-8 max-w-7xl mx-auto">        
+        <div className="mb-12">
           <div className="flex items-center justify-between mb-8">
             <div className="space-y-3">
               <h1 className="text-5xl font-bold bg-gradient-to-r from-gray-900 via-blue-900 to-purple-900 bg-clip-text text-transparent">
@@ -256,7 +258,8 @@ const AdminDashboard = () => {
                 </div>
                 <div className="text-gray-500">
                   Last updated: {new Date().toLocaleTimeString()}
-                </div>              </div>
+                </div>              
+              </div>
             </div>
             <div className="flex items-center space-x-4">
               <button 
