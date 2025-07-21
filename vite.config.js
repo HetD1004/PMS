@@ -8,19 +8,7 @@ export default defineConfig({
     outDir: 'dist',
     assetsDir: 'assets',
     sourcemap: false,
-    minify: 'esbuild',
-    chunkSizeWarningLimit: 1000,
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          vendor: ['react', 'react-dom'],
-          router: ['react-router-dom'],
-          charts: ['chart.js', 'react-chartjs-2'],
-          dnd: ['@hello-pangea/dnd'],
-          icons: ['lucide-react']
-        }
-      }
-    }
+    minify: 'esbuild'
   },
   define: {
     'process.env.NODE_ENV': JSON.stringify('production')

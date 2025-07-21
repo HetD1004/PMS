@@ -18,6 +18,8 @@ import KanbanBoardPage from './components/user/KanbanBoardPage';
 import NotificationDropdown from './components/user/NotificationDropdown';
 
 const App = () => {
+  console.log('App component is rendering...');
+  
   return (
     <AppProvider>
       <Router>
@@ -34,6 +36,8 @@ const App = () => {
 };
 
 const AppWithLayout = () => {
+  console.log('AppWithLayout component is rendering...');
+  
   return (
     <Layout>
       <Routes>
