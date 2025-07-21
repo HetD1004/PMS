@@ -8,6 +8,7 @@ export default defineConfig({
     outDir: 'dist',
     assetsDir: 'assets',
     sourcemap: false,
+    minify: 'esbuild',
     chunkSizeWarningLimit: 1000,
     rollupOptions: {
       output: {
@@ -21,5 +22,8 @@ export default defineConfig({
       }
     }
   },
-  base: './'
+  base: './',
+  define: {
+    'process.env.NODE_ENV': JSON.stringify('production')
+  }
 })
