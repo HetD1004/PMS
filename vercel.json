@@ -1,13 +1,18 @@
 {
   "version": 2,
-  "buildCommand": "npm ci && npm run build",
+  "buildCommand": "npm ci --no-audit --no-fund && npm run build",
   "outputDirectory": "dist",
-  "installCommand": "npm ci",
+  "installCommand": "npm ci --no-audit --no-fund",
   "framework": "vite",
   "routes": [
     {
       "src": "/(.*)",
       "dest": "/index.html"
     }
-  ]
+  ],
+  "functions": {
+    "app/**": {
+      "runtime": "nodejs18.x"
+    }
+  }
 }
