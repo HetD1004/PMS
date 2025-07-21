@@ -735,76 +735,71 @@ const AdminDashboard = () => {
                 </div>
                 
                 <div className="relative">
-                  <div className="h-80 flex items-center justify-center">
-                    <div className="relative w-full h-full">
-                      <Doughnut 
-                        data={taskStatusData} 
-                        options={{
-                          responsive: true,
-                          maintainAspectRatio: false,
-                          cutout: '60%',
-                          plugins: {
-                            legend: {
-                              position: 'bottom',
-                              labels: {
-                                padding: 25,
-                                usePointStyle: true,
-                                pointStyle: 'circle',
-                                font: {
-                                  size: 13,
-                                  weight: '600'
-                                },
-                                color: '#374151',
-                                generateLabels: (chart) => {
-                                  const data = chart.data;
-                                  if (data.labels.length && data.datasets.length) {
-                                    return data.labels.map((label, i) => {
-                                      const value = data.datasets[0].data[i];
-                                      const percentage = ((value / stats.total) * 100).toFixed(1);
-                                      return {
-                                        text: `${label} (${percentage}%)`,
-                                        fillStyle: data.datasets[0].backgroundColor[i],
-                                        hidden: false,
-                                        pointStyle: 'circle'
-                                      };
-                                    });
+                  <div className="h-64 relative mb-6">
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="relative w-64 h-64">
+                        <Doughnut 
+                          data={taskStatusData} 
+                          options={{
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            cutout: '60%',
+                            plugins: {
+                              legend: {
+                                display: false
+                              },
+                              tooltip: {
+                                backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                                titleColor: '#fff',
+                                bodyColor: '#fff',
+                                borderColor: 'rgba(255, 255, 255, 0.1)',
+                                borderWidth: 1,
+                                cornerRadius: 8,
+                                padding: 12,
+                                callbacks: {
+                                  label: function(context) {
+                                    const percentage = ((context.parsed / stats.total) * 100).toFixed(1);
+                                    return `${context.label}: ${context.parsed} tasks (${percentage}%)`;
                                   }
-                                  return [];
                                 }
                               }
                             },
-                            tooltip: {
-                              backgroundColor: 'rgba(0, 0, 0, 0.8)',
-                              titleColor: '#fff',
-                              bodyColor: '#fff',
-                              borderColor: 'rgba(255, 255, 255, 0.1)',
-                              borderWidth: 1,
-                              cornerRadius: 8,
-                              padding: 12,
-                              callbacks: {
-                                label: function(context) {
-                                  const percentage = ((context.parsed / stats.total) * 100).toFixed(1);
-                                  return `${context.label}: ${context.parsed} tasks (${percentage}%)`;
-                                }
-                              }
+                            animation: {
+                              animateRotate: true,
+                              animateScale: false,
+                              duration: 1000,
+                              easing: 'easeOutQuart'
                             }
-                          },
-                          animation: {
-                            animateRotate: true,
-                            animateScale: false,
-                            duration: 1000,
-                            easing: 'easeOutQuart'
-                          }
-                        }}
-                      />
-                      {}
-                      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                        <div className="text-center">
-                          <div className="text-3xl font-bold text-gray-900">{stats.total}</div>
-                          <div className="text-sm text-gray-500 font-medium">Total Tasks</div>
+                          }}
+                        />
+                        {/* Center text overlay - positioned precisely in the middle */}
+                        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none">
+                          <div className="text-center">
+                            <div className="text-3xl font-bold text-gray-900">{stats.total}</div>
+                            <div className="text-sm text-gray-500 font-medium">Total Tasks</div>
+                          </div>
                         </div>
                       </div>
                     </div>
+                  </div>
+                  
+                  {/* Custom legend below the chart */}
+                  <div className="flex flex-wrap justify-center gap-3 text-sm">
+                    {[
+                      { label: 'Backlog', count: stats.backlog, color: '#9CA3AF', percentage: ((stats.backlog / stats.total) * 100).toFixed(1) },
+                      { label: 'To Do', count: stats.todo, color: '#60A5FA', percentage: ((stats.todo / stats.total) * 100).toFixed(1) },
+                      { label: 'In Progress', count: stats.inProgress, color: '#FBBF24', percentage: ((stats.inProgress / stats.total) * 100).toFixed(1) },
+                      { label: 'Hold', count: stats.hold, color: '#FB923C', percentage: ((stats.hold / stats.total) * 100).toFixed(1) },
+                      { label: 'Done', count: stats.completed, color: '#34D399', percentage: ((stats.completed / stats.total) * 100).toFixed(1) }
+                    ].map((item) => (
+                      <div key={item.label} className="flex items-center space-x-2">
+                        <div 
+                          className="w-3 h-3 rounded-full" 
+                          style={{ backgroundColor: item.color }}
+                        ></div>
+                        <span className="text-gray-700 font-medium">{item.label} ({item.percentage}%)</span>
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>
